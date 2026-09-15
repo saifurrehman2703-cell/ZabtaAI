@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZabtaAI</string>
+    <string name="app_version">1.0.0</string>
+    <string name="accessibility_service_description">ZabtaAI: Real AI Phone Operator with voice control for Android</string>
+    
+    <!-- UI Strings -->
+    <string name="btn_activate">ACTIVATE</string>
+    <string name="btn_deactivate">DEACTIVATE</string>
+    <string name="status_active">ACTIVE</string>
+    <string name="status_off">OFF</string>
+    <string name="label_listening">Listening for commands...</string>
+    <string name="label_processing">Processing command...</string>
+    <string name="label_executing">Executing action...</string>
+    <string name="label_observing">Observing screen...</string>
+    <string name="label_verifying">Verifying result...</string>
+    
+    <!-- Urdu Strings -->
+    <string name="urdu_welcome">زبتاAI آپ کی خدمت میں حاضر ہے</string>
+    <string name="urdu_listening">آپ کی بات سننے کے لیے تیار ہوں</string>
+    <string name="urdu_processing">آپ کی کمان پر کارعمل</string>
+    <string name="urdu_executing">کام انجام دے رہا ہوں</string>
+    <string name="urdu_success">کام مکمل ہوگیا</string>
+    <string name="urdu_failed">کام ناکام ہوگیا</string>
+    <string name="urdu_not_found">یہ چیز نہیں ملی</string>
+    <string name="urdu_off">زبتاAI بند ہوگیا</string>
+    
+    <!-- Hindi Strings -->
+    <string name="hindi_welcome">ZabtaAI आपकी सेवा के लिए तैयार है</string>
+    <string name="hindi_listening">आपकी बात सुनने के लिए तैयार हूं</string>
+    <string name="hindi_processing">आपकी कमांड पर काम कर रहा हूं</string>
+    <string name="hindi_executing">कार्य को अंजाम दे रहा हूं</string>
+    <string name="hindi_success">कार्य पूर्ण हुआ</string>
+    <string name="hindi_failed">कार्य विफल हुआ</string>
+</resources>

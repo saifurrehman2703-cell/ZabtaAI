@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Futuristic Dark Theme Colors -->
+    <color name="primary">#0A1428</color>
+    <color name="primary_dark">#000509</color>
+    <color name="accent">#00D4FF</color>
+    <color name="accent_dark">#00A8CC</color>
+    <color name="surface">#1A2332</color>
+    <color name="background">#0D1117</color>
+    <color name="text_primary">#E6F2FF</color>
+    <color name="text_secondary">#8B949E</color>
+    <color name="error">#F85149</color>
+    <color name="success">#3FB950</color>
+    <color name="warning">#D29922</color>
+</resources>
