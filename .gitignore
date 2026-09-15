@@ -1,0 +1,49 @@
+# Gradle
+.gradle/
+build/
+*.apk
+*.aar
+*.ap_
+
+# Android Studio
+.idea/
+*.iml
+.DS_Store
+
+# Local configuration
+local.properties
+
+# Kotlin
+kotlin-build/
+
+# Generated files
+gen/
+out/
+
+# Log files
+*.log
+
+# Test files
+.junit_cache/
+.junit/
+
+# IDE
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.swp
+*.swo
+*~
+
+# AIA
+*.aia.bak
+
+# Extension output
+*.aix
