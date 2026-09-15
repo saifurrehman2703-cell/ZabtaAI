@@ -9,6 +9,8 @@ import android.widget.LinearLayout
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 class MainActivity : Activity() {
     private lateinit var statusIndicator: TextView
@@ -24,6 +26,15 @@ class MainActivity : Activity() {
         android.Manifest.permission.POST_NOTIFICATIONS
     )
     private val PERMISSION_REQUEST_CODE = 100
+    
+    // Core components
+    private var speechEngine: SpeechRecognitionEngine? = null
+    private var screenObserver: ScreenObserver? = null
+    private var actionExecutor: ActionExecutor? = null
+    private var planner: Planner? = null
+    private var stateManager: StateManager? = null
+    private var orchestrator: OperatorOrchestrator? = null
+    private val scope = MainScope()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +43,7 @@ class MainActivity : Activity() {
         initializeViews()
         setupListeners()
         requestRequiredPermissions()
+        initializeComponents()
         checkAccessibilityServiceStatus()
     }
 
@@ -54,6 +66,23 @@ class MainActivity : Activity() {
         }
     }
 
+    private fun initializeComponents() {
+        try {
+            // Initialize state manager
+            stateManager = StateManager(this)
+            addToLog("✓ State Manager initialized")
+            
+            // Initialize planner
+            planner = Planner()
+            addToLog("✓ Planner initialized")
+            
+            // Note: Other components require AccessibilityService which runs separately
+            addToLog("✓ Core components ready")
+        } catch (e: Exception) {
+            addToLog("✗ Initialization error: ${e.message}")
+        }
+    }
+
     private fun requestRequiredPermissions() {
         val permissionsNeeded = mutableListOf<String>()
         
@@ -70,6 +99,7 @@ class MainActivity : Activity() {
 
     private fun activateZabtaAI() {
         isActive = true
+        stateManager?.setActive(true)
         statusIndicator.text = "ACTIVE"
         statusIndicator.setTextColor(resources.getColor(R.color.success, null))
         statusText.text = "Status: ZabtaAI Active - Listening for commands"
@@ -83,6 +113,7 @@ class MainActivity : Activity() {
 
     private fun deactivateZabtaAI() {
         isActive = false
+        stateManager?.setActive(false)
         statusIndicator.text = "OFF"
         statusIndicator.setTextColor(resources.getColor(R.color.error, null))
         statusText.text = "Status: ZabtaAI Deactivated"
@@ -145,5 +176,11 @@ class MainActivity : Activity() {
                 addToLog("⚠ Some permissions denied")
             }
         }
+    }
+    
+    override fun onDestroy() {
+        super.onDestroy()
+        speechEngine?.release()
+        screenObserver?.release()
     }
 }
